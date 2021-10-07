@@ -38,14 +38,27 @@ function getPizzaOrder() {
   // if the user has added toppings, add toppingsFee multiplied by
   // the number of toppings added to pizza.cost
   // YOUR CODE HERE
-
+  if (toppings === 'string') {
+    pizza.toppings = toppings.split(",")
+  } 
+  else {
+    pizza.toppings = []
+  }
+  if (pizza.toppings === 'string') {
+    pizza.cost += toppings.length * toppingsFee
+  }
 
   var extraCheese = confirm("Would you like extra cheese?")
   // HINT: confirm() returns a boolean
   // if the user specifies extra cheese, set pizza.extraCheese to true or false
   // if the user specifies extra cheese, add extraCheeseUpcharge to pizza.cost
   // YOUR CODE HERE
- 
+  if (extraCheese) {
+    pizza.extraCheese = extraCheese
+    if (extraCheese){
+    pizza.cost += extraCheeseUpcharge
+    }
+  }
 
   var isDelivery = confirm("Is your order for Delivery?")
   // HINT: confirm() returns a boolean
@@ -53,6 +66,13 @@ function getPizzaOrder() {
   // if order is NOT for delivery, set pizza.saleType to "take-out"
   // if order if for delivery, add deliveryFee to pizza.cost
   // YOUR CODE HERE
+  if (isDelivery) {
+    pizza.saleType === 'delivery'
+    pizza.saleType = isDelivery
+  if (pizza.saleType = 'delivery') { 
+    pizza.cost += deliveryFee
+  }
+}
 
   return pizza
 }
